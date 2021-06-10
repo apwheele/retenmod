@@ -10,7 +10,6 @@ Only dependencies are scipy and numpy. For a simple example of use for the BdW m
 
     import retenmod
     surv = [100, 86.9, 74.3, 65.3, 59.3]
-    h = 6
-    res = retenmod.BdW(surv,h)
+    res = retenmod.bdw(surv,6)
     print(res.params)
-    print(res.projected)
+    print(res.proj)

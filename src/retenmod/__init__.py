@@ -1,1 +1,1 @@
-from .my_func import bdw, bg, lcw
+from .model_funcs import bdw, bg, lcw
