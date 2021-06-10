@@ -1,0 +1,1 @@
+from .my_func import bdw, bg, lcw
