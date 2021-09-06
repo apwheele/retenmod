@@ -11,3 +11,7 @@
 /src/retenmod.egg-info
 ProjectRetention.pdf
 retention_pg60.pdf
+
+# Notebook refuse
+.ipynb_checkpoints/*
+README.ipynb

@@ -168,7 +168,7 @@ def lcw(sval,h,
        print(res)
        return -1
 
-# Very simple use case, copied from R foretell library
+## Very simple use case, copied from R foretell library
 #surv_val = [100,86.9,74.3,65.3,59.3]
 #bdw(surv_val,5)
 #bg(surv_val,5)
