@@ -14,4 +14,5 @@ retention_pg60.pdf
 
 # Notebook refuse
 .ipynb_checkpoints/*
-README.ipynb
+# README.ipynb
+# Will keep this for illustration purposes
