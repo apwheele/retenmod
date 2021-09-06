@@ -19,6 +19,9 @@ print(res.params)
 
 print('\nProjections')
 print(res.proj)
+
+# Showing the full object
+res
 ```
 
     Parameter Estimates
@@ -29,6 +32,15 @@ print(res.proj)
       54.66117454  51.03695705  48.10442197  45.6687666   43.60356138
       41.82301709]
     
+
+
+
+
+    churnmod(proj=array([100.        ,  86.91457201,  74.19302745,  65.47868459,
+            59.29349012,  54.66117454,  51.03695705,  48.10442197,
+            45.6687666 ,  43.60356138,  41.82301709]), negLL=122.27493182897308, params=array([0.25936277, 1.7227105 , 1.5842661 ]))
+
+
 
 Here is an example taken from [Koper et al. (2002)](https://www.ojp.gov/sites/g/files/xyckuh241/files/media/document/193428.pdf) on police staff retentions. 
 
