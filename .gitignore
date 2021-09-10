@@ -16,3 +16,7 @@ retention_pg60.pdf
 .ipynb_checkpoints/*
 # README.ipynb
 # Will keep this for illustration purposes
+
+
+# cache junk (sometimes via pytest)
+__pycache__
