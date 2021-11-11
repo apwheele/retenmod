@@ -36,8 +36,18 @@ repos:
       pass_filenames: false
       always_run: true
 
+# redoing the readme
+- repo: local
+  hooks:
+    - id: gen-readme
+      name: gen-readme
+      entry: jupyter nbconvert --execute --to markdown README.ipynb
+      language: system
+      pass_filenames: false
+      always_run: true
+
 # This does not work
-# As it always modifies the files
+# As it always modifies the files (notebooks have timestamps)
 # running the example notebook
 #- repo: local
 #  hooks:
@@ -47,8 +57,8 @@ repos:
 #      language: system
 #      pass_filenames: false
 #      always_run: true
+# To get this to work would need some crazy diff stuff going on
 
-# Could do building the readme, will leave for actions artifact
 
 # USE NOTES
 #

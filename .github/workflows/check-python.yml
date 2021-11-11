@@ -31,6 +31,3 @@ jobs:
       - name: Run tests with pytest
         run: pytest 
       - run: echo "🍏 This job's status is ${{ job.status }}."
-
-
-# Maybe generate an artifact for the readme?
