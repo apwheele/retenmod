@@ -36,14 +36,14 @@ repos:
       pass_filenames: false
       always_run: true
 
-# This does not work, as it modifies the file
-# And will not be in the commit stages
+# This does not work
+# As it always modifies the files
 # running the example notebook
 #- repo: local
 #  hooks:
 #    - id: notebook-analysis
 #      name: notebook-analysis
-#      entry: jupyter nbconvert --to notebook --execute ExampleAnalysis.ipynb
+#      entry: jupyter nbconvert --to notebook --inplace --execute ExampleAnalysis.ipynb
 #      language: system
 #      pass_filenames: false
 #      always_run: true
