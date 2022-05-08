@@ -2,7 +2,7 @@
 *.pyc
 
 # Setuptools distribution folder.
-/dist/
+/dist/*
 /build/
 /retenmod*
 

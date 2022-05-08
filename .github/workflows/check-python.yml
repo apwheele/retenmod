@@ -8,26 +8,55 @@ on:
       - master
 
 jobs:
-  build:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
-        python-version: ['3.6', '3.7']
+  build_wheel:
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Set up Python ${{ matrix.python-version }}
+      - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: ${{ matrix.python-version }}
-      - name: Display Python and Platform version
-        run: python -c "import sys; print(sys.version); print(sys.platform)"
-      - name: Install dependencies simple check
+          python-version: 3.9
+      - name: Build wheel and install
         run: |
           python -m pip install --user --upgrade build
-          pip install pytest
-          pip install .
+          python -m build
+          ls ./dist | grep .whl | xargs pip install
           python simple_test.py
-      - name: Run tests with pytest
-        run: pytest 
+      - name: Configure Git
+        run: |
+          git config --global user.email "apwheele@gmail.com"
+          git config --global user.name "apwheele"
+      - name: Commit and push wheel
+        run: |
+          git add ./dist/*.whl
+          git commit -m 'pushing new wheel'
+          git push
       - run: echo "🍏 This job's status is ${{ job.status }}."
+      
+
+# Old pytest example on multiple platforms
+# Seems a bit excessive
+#jobs:
+#  build:
+#    runs-on: ${{ matrix.os }}
+#    strategy:
+#      matrix:
+#        os: [ubuntu-latest, macos-latest, windows-latest]
+#        python-version: ['3.6', '3.9']
+#    steps:
+#      - uses: actions/checkout@v2
+#      - name: Set up Python ${{ matrix.python-version }}
+#        uses: actions/setup-python@v2
+#        with:
+#          python-version: ${{ matrix.python-version }}
+#      - name: Display Python and Platform version
+#        run: python -c "import sys; print(sys.version); print(sys.platform)"
+#      - name: Install dependencies simple check
+#        run: |
+#          python -m pip install --user --upgrade build
+#          pip install pytest
+#          pip install .
+#          python simple_test.py
+#      - name: Run tests with pytest
+#        run: pytest 
+#      - run: echo "🍏 This job's status is ${{ job.status }}."
