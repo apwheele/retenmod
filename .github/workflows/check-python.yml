@@ -20,16 +20,19 @@ jobs:
         run: |
           python -m pip install --user --upgrade build
           python -m build
-          pip install .
+          #pip install .
           #ls ./dist | grep .whl | xargs pip install
-          python simple_test.py
+          #python simple_test.py
       - name: Configure Git
         run: |
           git config --global user.email "apwheele@gmail.com"
           git config --global user.name "apwheele"
       - name: Commit and push wheel
         run: |
-          git add *.whl
+          pwd
+          ls
+          ls ./dist
+          git add ./dist/*.whl
           git commit -m 'pushing new wheel'
           git push
       - run: echo "🍏 This job's status is ${{ job.status }}."
