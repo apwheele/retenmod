@@ -32,8 +32,9 @@ jobs:
         run: |
           python -m pip install --user --upgrade build
           python -m build
-          # installing spark libraries
-          pip install pyspark pyarrow pandas pytest
+          # installing spark libraries, newer versions
+          # cause time conversion errors
+          pip install pyspark==3.2.1 pyarrow pandas==1.4.2 pytest
           # now install the wheel file
           find ./dist/*.whl | xargs pip install
           # Now run pytest tests
