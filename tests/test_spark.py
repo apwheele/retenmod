@@ -28,8 +28,8 @@ GROUP BY y"""
 
 beg_date = ["1/1/2020", "1/2/2020", "1/3/2020", "1/5/2020"]
 end_date = ["1/3/2020", "1/6/2020", "1/3/2020", "1/15/2020"]
-test_table["beg_date"] = pd.to_datetime(beg_date)
-test_table["end_date"] = pd.to_datetime(end_date)
+test_table["beg_date"] = pd.to_datetime(beg_date, utc=True)
+test_table["end_date"] = pd.to_datetime(end_date, utc=True)
 test_table["fail"] = [0, 1, 0, 1]
 
 
